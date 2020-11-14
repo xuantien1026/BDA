@@ -17,6 +17,7 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+logfile
 
 # Ignore pidfiles, but keep the directory.
 /tmp/pids/*
@@ -39,3 +40,6 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+# Ignore IDE files
+.idea/*

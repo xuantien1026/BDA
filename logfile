@@ -6,3 +6,6 @@
 2020-11-14 18:00:40.822 +07 [63242] LOG:  database system is ready to accept connections
 2020-11-14 18:00:43.492 +07 [63263] FATAL:  database "tien.nx" does not exist
 2020-11-14 18:01:42.361 +07 [63281] FATAL:  database "bda" does not exist
+2020-11-14 18:46:27.711 +07 [64977] FATAL:  database "db/development.sqlite3" does not exist
+2020-11-14 18:46:50.458 +07 [65057] FATAL:  database "tien.nx" does not exist
+2020-11-14 18:47:14.866 +07 [65144] FATAL:  database "tien.nx" does not exist
