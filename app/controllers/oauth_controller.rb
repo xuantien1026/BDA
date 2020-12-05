@@ -4,7 +4,6 @@ require 'googleauth'
 require 'googleauth/web_user_authorizer'
 require 'googleauth/stores/file_token_store'
 
-
 class OauthController < ApplicationController
   def index
     # authorizer = Google::Auth::ServiceAccountCredentials.make_creds(
@@ -33,6 +32,8 @@ class OauthController < ApplicationController
 
     client = Google::Apis::AnalyticsV3::AnalyticsService.new
     client.authorization = @credential
-    @ga_data = client.get_ga_data('ga:124563799', '30daysAgo', 'yesterday', 'ga:pageviews', dimensions: 'ga:pageTitle', max_results: 5)
+    @ga_data = client.get_ga_data('ga:124563799', '30daysAgo', 'yesterday', 'ga:pageviews', dimensions: 'ga:pageTitle', max_results: 10)
+    @label = @ga_data.rows.map { |r| r[0][0..15] }.to_json
+    @data = @ga_data.rows.map { |r| r[1] }.to_json
   end
 end

@@ -1,9 +1,37 @@
-<%= @access_token %>
-<br>
 <div>
   <%= @credential %>
 </div>
 <div>
-  <%= debug @ga_data %>
+  <%= raw @label %>
+</div>
+<div>
+  <%= raw @data %>
 </div>
 
+<div id="chart">
+  <bar-chart></bar-chart>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+<script src="https://unpkg.com/vue-chartjs/dist/vue-chartjs.min.js"></script>
+<script>
+  Vue.component('bar-chart', {
+      extends: VueChartJs.Bar,
+      mounted () {
+          this.renderChart({
+              labels: <%= raw @label %>,
+              datasets: [
+                  {
+                      label: 'Page Views',
+                      backgroundColor: '#f87979',
+                      data: <%= raw @data %>
+                  }
+              ]
+          }, {responsive: true, maintainAspectRatio: false})
+      }
+  })
+
+  let chart = new Vue({
+      el: "#chart"
+  })
+</script>
